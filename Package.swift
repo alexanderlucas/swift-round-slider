@@ -8,9 +8,6 @@ let package = Package(
     products: [
         // Products define the executables and libraries produced by a package, and make them visible to other packages.
         .library(
-            name: "swift-slider",
-            targets: ["swift-slider"]),
-        .library(
         name: "RoundSlider",
         targets: ["RoundSlider"]),
     ],
@@ -21,9 +18,6 @@ let package = Package(
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
-        .target(
-            name: "swift-slider",
-            dependencies: []),
         .target(
             name: "RoundSlider",
             dependencies: []),
