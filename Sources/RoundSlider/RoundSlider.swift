@@ -9,14 +9,14 @@
 import SwiftUI
 
 @available(iOS 13.0, macOS 10.15, *)
-class SliderData: ObservableObject {
+public class SliderData: ObservableObject {
     
     var minValue: Double
     var maxValue: Double
     var defaultValue: Double
     var color: Color
     
-    init(minValue: Double, maxValue: Double, defaultValue: Double, color: Color) {
+    public init(minValue: Double, maxValue: Double, defaultValue: Double, color: Color) {
         self.minValue = minValue
         self.maxValue = maxValue
         self.defaultValue = defaultValue
@@ -29,7 +29,7 @@ class SliderData: ObservableObject {
 }
 
 @available(iOS 13.0, macOS 10.15, *)
-struct RoundSlider: View {
+public struct RoundSlider: View {
     @EnvironmentObject var data: SliderData
     @GestureState var isDetectingLongPress = false
     @State var moving: Bool = false
@@ -39,9 +39,11 @@ struct RoundSlider: View {
         String(Int(data.value))
     }
     
-       
+    public init() {
+        
+    }
 
-    var body: some View {
+    public var body: some View {
         
         return
             GeometryReader { (geometry) -> AnyView in
