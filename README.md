@@ -1,6 +1,4 @@
-# swiftui-round-slider
-
-## Table of Contents
+# RoundSlider
 
 ## Introduction
 
@@ -19,7 +17,7 @@ This project is a simple SwiftUI implementation of an interactive slider with cu
 
 Go to `File > Swift Packages > Add Package Dependency` and enter https://github.com/alexanderlucas/swift-round-slider
 
-## Usage
+## Example Usage
 
 ```Swift
 import RoundSlider
