@@ -64,7 +64,7 @@ public struct RoundSlider: View {
                         if self.initialPosition == nil {
                             let oldDiff = max - min
                             let newDiff = CGFloat(self.data.maxValue - self.data.minValue)
-                            let valDiff = CGFloat(self.data.defaultValue - self.data.minValue)
+                            let valDiff = CGFloat(self.data.defaultValue - self.data.maxValue)
                             
                             self.initialPosition = CGSize(width: (oldDiff / newDiff) * valDiff + max, height: 0)
                         }
