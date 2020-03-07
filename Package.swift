@@ -10,6 +10,9 @@ let package = Package(
         .library(
             name: "swift-slider",
             targets: ["swift-slider"]),
+        .library(
+        name: "RoundSlider",
+        targets: ["RoundSlider"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -20,6 +23,9 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "swift-slider",
+            dependencies: []),
+        .target(
+            name: "RoundSlider",
             dependencies: []),
         .testTarget(
             name: "swift-sliderTests",
