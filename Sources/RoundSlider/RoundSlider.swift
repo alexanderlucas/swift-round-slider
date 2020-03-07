@@ -33,7 +33,7 @@ public struct RoundSlider: View {
     @EnvironmentObject var data: SliderData
     @GestureState var isDetectingLongPress = false
     @State var moving: Bool = false
-    @State var initialPosition: CGSize = .zero
+    @State var initialPosition: CGSize?
     
     var valueString: String {
         String(Int(data.value))
@@ -61,9 +61,16 @@ public struct RoundSlider: View {
 
                 let drag = DragGesture()
                     .onChanged {
+                        if self.initialPosition == nil {
+                            let oldDiff = max - min
+                            let newDiff = CGFloat(self.data.maxValue - self.data.minValue)
+                            let valDiff = CGFloat(self.data.defaultValue - self.data.minValue)
+                            
+                            self.initialPosition = CGSize(width: (oldDiff / newDiff) * valDiff + max, height: 0)
+                        }
                         var tran = $0.translation
 
-                        tran.width += self.initialPosition.width
+                        tran.width += self.initialPosition!.width
                         if tran.width < min {
                             tran.width = min
                         }
@@ -87,7 +94,7 @@ public struct RoundSlider: View {
                 .onEnded {
                     var tran = $0.translation
                     
-                    tran.width += self.initialPosition.width
+                    tran.width += self.initialPosition!.width
 
                     if tran.width < min {
                         tran.width = min
@@ -96,8 +103,8 @@ public struct RoundSlider: View {
                         tran.width = max
                     }
 
-                    self.initialPosition.width = tran.width
-                    self.initialPosition.height = 0
+                    self.initialPosition!.width = tran.width
+                    self.initialPosition!.height = 0
                     self.moving = false
 
                     let newDiff = CGFloat(self.data.maxValue - self.data.minValue)
