@@ -133,7 +133,7 @@ public struct RoundSlider: View {
                             .frame(width: geometry.size.width, height: 40)
                             .cornerRadius(20)
                             .animation(.spring())
-                            .foregroundColor(.red)
+                            .foregroundColor(self.data.color)
                         Thumb(label: self.valueString, isUp: self.moving || self.isDetectingLongPress, color: self.data.color)
                             .frame(width: 40, height: 40)
                             .offset(x: offsetWidth, y: self.isDetectingLongPress || self.moving ? -37 : 0)
