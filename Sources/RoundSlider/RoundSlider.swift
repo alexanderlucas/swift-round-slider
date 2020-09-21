@@ -15,13 +15,14 @@ public class SliderData: ObservableObject {
     var maxValue: Double
     var defaultValue: Double
     public var color: Color
+    var goesUp: Bool
     
-    public init(minValue: Double, maxValue: Double, defaultValue: Double, color: Color) {
+    public init(minValue: Double, maxValue: Double, defaultValue: Double, color: Color, goesUp: Bool = true) {
         self.minValue = minValue
         self.maxValue = maxValue
         self.defaultValue = defaultValue
         self.color = color
-        
+        self.goesUp = goesUp
         self.value = defaultValue
     }
 
@@ -138,7 +139,7 @@ public struct RoundSlider: View {
                             .cornerRadius(20)
                             .animation(.spring())
                             .foregroundColor(self.data.color)
-                        Thumb(label: self.valueString, isUp: self.moving || self.isDetectingLongPress, color: self.data.color)
+                        Thumb(label: self.valueString, isUp: self.data.goesUp && (self.moving || self.isDetectingLongPress), color: self.data.color)
                             .frame(width: 40, height: 40)
                             .offset(x: offsetWidth, y: self.isDetectingLongPress || self.moving ? -37 : 0)
                             .gesture(press)
