@@ -139,9 +139,9 @@ public struct RoundSlider: View {
                             .cornerRadius(20)
                             .animation(.spring())
                             .foregroundColor(self.data.color)
-                        Thumb(label: self.valueString, isUp: self.data.goesUp && (self.moving || self.isDetectingLongPress), color: self.data.color)
+                        Thumb(label: self.valueString, color: self.data.color)
                             .frame(width: 40, height: 40)
-                            .offset(x: offsetWidth, y: self.isDetectingLongPress || self.moving ? -37 : 0)
+                            .offset(x: offsetWidth, y: self.data.goesUp && (self.isDetectingLongPress || self.moving) ? -37 : 0)
                             .gesture(press)
                             .gesture(drag)
                             .animation(Animation.spring(dampingFraction: 0.76).speed(1.6))
@@ -155,8 +155,7 @@ public struct RoundSlider: View {
 @available(iOS 13.0, macOS 10.15, *)
 private struct Thumb: View {
     var label: String = ""
-    
-    var isUp: Bool
+
     
     var color: Color
 
