@@ -14,7 +14,7 @@ public class SliderData: ObservableObject {
     var minValue: Double
     var maxValue: Double
     var defaultValue: Double
-    var color: Color
+    public var color: Color
     
     public init(minValue: Double, maxValue: Double, defaultValue: Double, color: Color) {
         self.minValue = minValue
