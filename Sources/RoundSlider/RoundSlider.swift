@@ -26,6 +26,10 @@ public class SliderData: ObservableObject {
     }
 
     @Published var value: Double
+    
+    public func getValue() -> Double {
+        value
+    }
 }
 
 @available(iOS 13.0, macOS 10.15, *)
